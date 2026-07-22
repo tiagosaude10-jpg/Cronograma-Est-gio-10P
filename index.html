@@ -16,6 +16,7 @@
 <script src="./today-v11.js" defer></script>
 <script src="./search-student-v2.js" defer></script>
 <script src="./search-preceptor-v1.js" defer></script>
+<script src="./search-field-v1.js" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -126,6 +127,8 @@
   .student-table-note{padding:9px 13px;color:var(--text-3);font-size:9.5px;border-top:1px solid var(--border);}
   .preceptor-students{font-weight:700;color:var(--text);line-height:1.45;}
   .preceptor-groups{display:block;color:var(--text-3);font-size:9px;line-height:1.4;margin-top:3px;}
+  .field-schedule{min-width:830px;}
+  .field-preceptors{font-weight:800;color:var(--accent);line-height:1.4;}
 
   .banner{display:flex;gap:10px;align-items:flex-start;background:rgba(45,108,223,.10);color:#0B3B8C;border:1px solid rgba(45,108,223,.10);border-radius:16px;padding:11px 14px;font-size:12.5px;margin-bottom:14px;line-height:1.5;}
   @media (prefers-color-scheme: dark){.banner{color:#8FC1FF;}}
@@ -371,7 +374,28 @@
       <p class="finder-help">Digite pelo menos duas letras e escolha a preceptora correta.</p>
       <div class="finder-status" id="preceptor-search-status" aria-live="polite"></div>
       <div class="finder-results" id="preceptor-search-results"></div>
-      <div class="finder-next">Próxima etapa: pesquisa por local de estágio.</div>
+      <div class="finder-next">A pesquisa mostra somente a especialidade selecionada.</div>
+    </div>
+  </details>
+
+  <details class="finder" id="field-finder">
+    <summary>
+      <span class="finder-icon" aria-hidden="true"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+      <span class="finder-copy"><strong>Pesquisar campo de estágio</strong><small>Veja preceptores, alunos, grupos e datas</small></span>
+      <span class="finder-chevron" aria-hidden="true">›</span>
+    </summary>
+    <div class="finder-body">
+      <span class="finder-stage">ETAPA 3 · CAMPO DE ESTÁGIO</span>
+      <label class="finder-label" for="field-search">Nome do campo ou local</label>
+      <div class="finder-input">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        <input id="field-search" type="search" inputmode="search" autocomplete="off" placeholder="Ex.: HMMI, HRC, CREAMI, UBS...">
+        <button class="finder-clear" id="field-search-clear" type="button" aria-label="Limpar pesquisa">×</button>
+      </div>
+      <p class="finder-help">Digite pelo menos duas letras e escolha o campo correto.</p>
+      <div class="finder-status" id="field-search-status" aria-live="polite"></div>
+      <div class="finder-results" id="field-search-results"></div>
+      <div class="finder-next">A pesquisa mostra somente a especialidade selecionada.</div>
     </div>
   </details>
 
