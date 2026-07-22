@@ -40,6 +40,7 @@
   .hero-sub{font-size:14px;color:var(--text-2);margin:0 0 12px;line-height:1.45;}
   .pulse-wrap{height:28px;max-width:260px;}
   .pulse{stroke:#D6336C;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:6 6;animation:dash 2.4s linear infinite;}
+  .hero-byline{position:relative;z-index:2;margin:10px 0 -8px;padding:6px 14px;border-radius:999px;background:linear-gradient(135deg,#6D61F0,#4B3FDC);color:#fff;text-align:center;font-size:11px;font-weight:700;letter-spacing:.01em;line-height:1.35;}
   @keyframes dash{to{stroke-dashoffset:-120;}}
   @media(max-width:560px){
     .hero{padding:17px 15px;border-radius:20px;}
@@ -50,6 +51,7 @@
     h1{font-size:20px;line-height:1.1;margin-bottom:6px;}
     .hero-sub{font-size:11.5px;line-height:1.35;margin-bottom:6px;}
     .pulse-wrap{height:18px;max-width:180px;}
+    .hero-byline{margin-top:9px;padding:5px 10px;font-size:10px;}
   }
 
   .today-card{width:100%;display:grid;grid-template-columns:52px minmax(0,1fr) 34px;gap:13px;align-items:center;text-align:left;border:1px solid #DDD9F8;background:linear-gradient(135deg,#FFFFFF,#F5F3FF);border-radius:20px;padding:14px 16px;margin:0 0 12px;color:var(--text);font:inherit;cursor:pointer;box-shadow:0 9px 24px rgba(54,45,130,.07);}
@@ -252,6 +254,7 @@
         </svg>
       </div>
     </div>
+    <div class="hero-byline">By Tiago Pereira de Albuquerque</div>
   </div>
 
   <button class="today-card" id="today-card" type="button" aria-label="Ir para a semana e o dia de hoje">
@@ -5980,6 +5983,3 @@ if('serviceWorker' in navigator){
   window.addEventListener('load', function(){
     navigator.serviceWorker.register('./service-worker.js').catch(function(){});
   });
-}
-</script>
-</body>
