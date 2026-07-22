@@ -14,6 +14,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192-v3.png">
 <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon-v3.png">
 <script src="./today-v11.js" defer></script>
+<script src="./search-student-v1.js" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -63,6 +64,41 @@
   .today-date{font-family:'Space Grotesk',sans-serif;font-size:20px;line-height:1.15;}
   .today-sub{color:var(--text-2);font-size:12px;}
   .today-arrow{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--accent);color:#fff;font-size:20px;}
+
+  .finder{border:1px solid #DDD9F8;background:#fff;border-radius:20px;margin:0 0 12px;box-shadow:0 8px 22px rgba(54,45,130,.05);overflow:hidden;}
+  .finder>summary{display:grid;grid-template-columns:46px minmax(0,1fr) 30px;gap:12px;align-items:center;padding:13px 15px;cursor:pointer;list-style:none;user-select:none;}
+  .finder>summary::-webkit-details-marker{display:none;}
+  .finder-icon{width:46px;height:46px;border-radius:14px;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;}
+  .finder-copy{display:flex;flex-direction:column;gap:2px;}
+  .finder-copy strong{font:700 15px 'Space Grotesk',sans-serif;}
+  .finder-copy small{font-size:11px;color:var(--text-2);}
+  .finder-chevron{width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:19px;transition:transform .2s;}
+  .finder[open] .finder-chevron{transform:rotate(90deg);}
+  .finder-body{border-top:1px solid var(--border);padding:14px 15px 15px;}
+  .finder-stage{display:inline-flex;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:4px 9px;font-size:9.5px;font-weight:800;letter-spacing:.06em;margin-bottom:10px;}
+  .finder-label{display:block;font-size:12px;font-weight:700;margin-bottom:6px;}
+  .finder-input{display:grid;grid-template-columns:22px minmax(0,1fr) 28px;align-items:center;gap:7px;border:1.5px solid #D7D2F5;background:#FBFAFF;border-radius:14px;padding:0 10px;color:var(--accent);}
+  .finder-input:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px rgba(91,79,233,.10);}
+  .finder-input input{width:100%;border:0;outline:0;background:transparent;color:var(--text);font:500 14px 'Inter',sans-serif;padding:12px 0;}
+  .finder-clear{width:27px;height:27px;border:0;border-radius:50%;background:#EAE7FB;color:var(--text-2);font-size:17px;cursor:pointer;display:none;}
+  .finder-help,.finder-status{font-size:10.5px;color:var(--text-3);margin:7px 2px 0;line-height:1.4;}
+  .finder-results{display:grid;gap:10px;margin-top:11px;}
+  .student-result{border:1px solid var(--border);border-radius:16px;background:linear-gradient(135deg,#fff,#FAF9FF);padding:13px;}
+  .student-result-head{display:flex;justify-content:space-between;gap:8px;align-items:flex-start;margin-bottom:7px;}
+  .student-name{font:700 15px 'Space Grotesk',sans-serif;line-height:1.25;}
+  .student-specialty{flex:none;color:#fff;background:var(--accent);border-radius:999px;padding:4px 8px;font-size:9.5px;font-weight:800;}
+  .student-context{font-size:11px;color:var(--text-2);line-height:1.5;margin-bottom:8px;}
+  .student-today{font-size:10px;font-weight:800;color:var(--accent);letter-spacing:.04em;margin-bottom:6px;}
+  .student-shifts{display:grid;gap:6px;}
+  .student-shift{display:grid;grid-template-columns:78px minmax(0,1fr);gap:7px;background:#F4F2FF;border-radius:11px;padding:8px;}
+  .student-shift-time{font-size:10px;font-weight:800;color:var(--accent);}
+  .student-shift-main{font-size:11px;font-weight:700;line-height:1.35;}
+  .student-shift-detail{display:block;color:var(--text-2);font-size:10px;font-weight:500;margin-top:2px;}
+  .student-empty{border:1px dashed var(--border);border-radius:11px;padding:9px;color:var(--text-3);font-size:11px;text-align:center;}
+  .student-members{margin-top:8px;font-size:10.5px;color:var(--text-2);}
+  .student-members summary{cursor:pointer;color:var(--accent);font-weight:700;}
+  .student-members div{margin-top:5px;line-height:1.55;}
+  .finder-next{margin-top:11px;padding-top:10px;border-top:1px solid var(--border);font-size:10.5px;color:var(--text-3);text-align:center;}
 
   .banner{display:flex;gap:10px;align-items:flex-start;background:rgba(45,108,223,.10);color:#0B3B8C;border:1px solid rgba(45,108,223,.10);border-radius:16px;padding:11px 14px;font-size:12.5px;margin-bottom:14px;line-height:1.5;}
   @media (prefers-color-scheme: dark){.banner{color:#8FC1FF;}}
@@ -269,6 +305,27 @@
     </span>
     <span class="today-arrow" aria-hidden="true">›</span>
   </button>
+
+  <details class="finder" id="student-finder">
+    <summary>
+      <span class="finder-icon" aria-hidden="true"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/><path d="M8.5 10.5h5M11 8v5"/></svg></span>
+      <span class="finder-copy"><strong>Pesquisar no cronograma</strong><small>Encontre um aluno e veja onde ele está hoje</small></span>
+      <span class="finder-chevron" aria-hidden="true">›</span>
+    </summary>
+    <div class="finder-body">
+      <span class="finder-stage">ETAPA 1 · ALUNO</span>
+      <label class="finder-label" for="student-search">Nome do aluno</label>
+      <div class="finder-input">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        <input id="student-search" type="search" inputmode="search" autocomplete="off" placeholder="Ex.: Tiago, Maysa, Wanessa...">
+        <button class="finder-clear" id="student-search-clear" type="button" aria-label="Limpar pesquisa">×</button>
+      </div>
+      <p class="finder-help">Digite pelo menos duas letras do nome.</p>
+      <div class="finder-status" id="student-search-status" aria-live="polite"></div>
+      <div class="finder-results" id="student-search-results"></div>
+      <div class="finder-next">Próximas etapas: pesquisa por preceptor e por local de estágio.</div>
+    </div>
+  </details>
 
   <div class="banner">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
