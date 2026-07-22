@@ -1,7 +1,8 @@
-const CACHE_NAME = 'cronogramas-internato-v10';
+const CACHE_NAME = 'cronogramas-internato-v11';
 const APP_SHELL = [
   './',
   './index.html',
+  './today-v11.js',
   './manifest-estagio-10p.webmanifest',
   './icons/icon-192-v3.png',
   './icons/icon-512-v3.png',
