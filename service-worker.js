@@ -1,11 +1,11 @@
-const CACHE_NAME = 'cronogramas-internato-v5';
+const CACHE_NAME = 'cronogramas-internato-v6';
 const APP_SHELL = [
   './',
   './index.html',
   './manifest.webmanifest',
-  './icons/icon-192-v2.png',
-  './icons/icon-512-v2.png',
-  './icons/apple-touch-icon-v2.png'
+  './icons/icon-192-v3.png',
+  './icons/icon-512-v3.png',
+  './icons/apple-touch-icon-v3.png'
 ];
 
 self.addEventListener('install', event => {
