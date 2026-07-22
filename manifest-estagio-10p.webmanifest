@@ -1,0 +1,26 @@
+{
+  "id": "./",
+  "name": "Estágio 10P",
+  "short_name": "Estágio 10P",
+  "description": "Cronogramas de internato de Obstetrícia e Pediatria.",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#5B4FE9",
+  "icons": [
+    {
+      "src": "./icons/icon-192-v3.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512-v3.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
