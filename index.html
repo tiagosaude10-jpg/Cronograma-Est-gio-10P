@@ -15,6 +15,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon-v3.png">
 <script src="./today-v11.js" defer></script>
 <script src="./search-student-v2.js" defer></script>
+<script src="./search-preceptor-v1.js" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -123,6 +124,8 @@
   .student-preceptor{color:var(--text-2);}
   .student-table-empty{padding:15px;text-align:center;color:var(--text-3);font-size:11px;border-top:1px solid var(--border);}
   .student-table-note{padding:9px 13px;color:var(--text-3);font-size:9.5px;border-top:1px solid var(--border);}
+  .preceptor-students{font-weight:700;color:var(--text);line-height:1.45;}
+  .preceptor-groups{display:block;color:var(--text-3);font-size:9px;line-height:1.4;margin-top:3px;}
 
   .banner{display:flex;gap:10px;align-items:flex-start;background:rgba(45,108,223,.10);color:#0B3B8C;border:1px solid rgba(45,108,223,.10);border-radius:16px;padding:11px 14px;font-size:12.5px;margin-bottom:14px;line-height:1.5;}
   @media (prefers-color-scheme: dark){.banner{color:#8FC1FF;}}
@@ -347,7 +350,28 @@
       <p class="finder-help">Digite pelo menos duas letras e escolha o aluno correto.</p>
       <div class="finder-status" id="student-search-status" aria-live="polite"></div>
       <div class="finder-results" id="student-search-results"></div>
-      <div class="finder-next">Próximas etapas: pesquisa por preceptor e por local de estágio.</div>
+      <div class="finder-next">A pesquisa mostra somente a especialidade selecionada.</div>
+    </div>
+  </details>
+
+  <details class="finder" id="preceptor-finder">
+    <summary>
+      <span class="finder-icon" aria-hidden="true"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M5 21a7 7 0 0 1 14 0"/><path d="m16.5 13.5 1.5 1.5 3-3"/></svg></span>
+      <span class="finder-copy"><strong>Pesquisar preceptora</strong><small>Veja campos, datas, alunos e grupos</small></span>
+      <span class="finder-chevron" aria-hidden="true">›</span>
+    </summary>
+    <div class="finder-body">
+      <span class="finder-stage">ETAPA 2 · PRECEPTORA</span>
+      <label class="finder-label" for="preceptor-search">Nome da preceptora</label>
+      <div class="finder-input">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        <input id="preceptor-search" type="search" inputmode="search" autocomplete="off" placeholder="Ex.: Carolina, Kizzy, Edielen...">
+        <button class="finder-clear" id="preceptor-search-clear" type="button" aria-label="Limpar pesquisa">×</button>
+      </div>
+      <p class="finder-help">Digite pelo menos duas letras e escolha a preceptora correta.</p>
+      <div class="finder-status" id="preceptor-search-status" aria-live="polite"></div>
+      <div class="finder-results" id="preceptor-search-results"></div>
+      <div class="finder-next">Próxima etapa: pesquisa por local de estágio.</div>
     </div>
   </details>
 
