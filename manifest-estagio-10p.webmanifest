@@ -4,7 +4,7 @@
   "short_name": "Estágio 10P",
   "description": "Cronogramas de internato de Obstetrícia e Pediatria.",
   "lang": "pt-BR",
-  "start_url": "./",
+  "start_url": "./?app=11",
   "scope": "./",
   "display": "standalone",
   "background_color": "#FFFFFF",
