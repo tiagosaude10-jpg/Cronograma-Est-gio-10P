@@ -282,6 +282,28 @@
 #s-ped:checked ~ .specialtyblock.specialty-ped{display:block;}
 #s-obst:checked ~ .contents .content[id^="content-obst-"]{ }
 
+  .specialty-zone{position:relative;left:50%;width:100vw;transform:translateX(-50%);padding:0 1.25rem 2rem;transition:background .25s ease;}
+  .specialty-zone:has(#s-obst:checked){background:linear-gradient(180deg,#FFF8FB 0%,#FFF1F6 48%,#FFF8FB 100%);}
+  .specialty-zone:has(#s-ped:checked){background:linear-gradient(180deg,#F6FCF9 0%,#EAF8F1 48%,#F6FCF9 100%);}
+  #s-obst:checked ~ .hubtop,
+  #s-obst:checked ~ .specialty-obst,
+  #s-obst:checked ~ .contents{--accent:#D6336C;--accent-soft:#FCE8EF;}
+  #s-ped:checked ~ .hubtop,
+  #s-ped:checked ~ .specialty-ped,
+  #s-ped:checked ~ .contents{--accent:#11875D;--accent-soft:#E0F5EC;}
+  #s-obst:checked ~ .hubtop{background:rgba(255,248,251,.94);}
+  #s-ped:checked ~ .hubtop{background:rgba(246,252,249,.94);}
+  #s-obst:checked ~ .hubtop .spectab[for="s-obst"]{background:linear-gradient(135deg,#E13B74,#C92A63);box-shadow:0 8px 18px rgba(214,51,108,.22);}
+  #s-ped:checked ~ .hubtop .spectab[for="s-ped"]{background:linear-gradient(135deg,#1AA875,#087B55);box-shadow:0 8px 18px rgba(17,135,93,.22);}
+  #s-obst:checked ~ .specialty-obst .pill{border-color:#F0D5DF;}
+  #s-ped:checked ~ .specialty-ped .pill{border-color:#CDE8DC;}
+  #s-obst:checked ~ .contents .card,
+  #s-obst:checked ~ .contents .weekcard{border-color:#F0DCE4;}
+  #s-ped:checked ~ .contents .card,
+  #s-ped:checked ~ .contents .weekcard{border-color:#D4EAE0;}
+  @media(min-width:1020px){.specialty-zone{padding-left:calc((100vw - 980px)/2);padding-right:calc((100vw - 980px)/2);}}
+  @media(max-width:520px){.specialty-zone{padding-left:.85rem;padding-right:.85rem;}}
+
   body.schedule-notice-open{overflow:hidden;}
   .schedule-notice[hidden]{display:none!important;}
   .schedule-notice{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;padding:22px;background:rgba(25,21,48,.59);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);}
@@ -467,6 +489,7 @@
     </details>
   </div>
 
+<div class="specialty-zone">
 <input type="radio" name="spec" id="s-obst" class="vh" checked>
 <input type="radio" name="spec" id="s-ped" class="vh">
 <input type="radio" name="ocohort" id="oc-grupoC" class="vh" checked>
@@ -6009,6 +6032,7 @@
       <li>Em Pediatria, o <b>Grupo 4 não aparece nas tabelas de rodízio</b> originais — marcado como "não especificado". Nada mudou em Pediatria nesta atualização.</li>
     </ul>
   </div>
+</div>
 </div>
 
 <script>
