@@ -1,8 +1,8 @@
-const CACHE_NAME = 'cronogramas-internato-v7';
+const CACHE_NAME = 'cronogramas-internato-v8';
 const APP_SHELL = [
   './',
   './index.html',
-  './manifest.webmanifest',
+  './manifest-estagio-10p.webmanifest',
   './icons/icon-192-v3.png',
   './icons/icon-512-v3.png',
   './icons/apple-touch-icon-v3.png'
